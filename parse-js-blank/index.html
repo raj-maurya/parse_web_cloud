@@ -1,0 +1,99 @@
+<!doctype html>
+<head>
+  <meta charset="utf-8">
+
+  <title>My Parse App</title>
+  <meta name="description" content="My Parse App">
+  <meta name="viewport" content="width=device-width">
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+  <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
+</head>
+
+<body>
+  
+  <div id="main">
+    <h1>You're ready to use Parse!</h1>
+    <h3>Enter the Course name and its description..!</h3>
+    <form id="post-form">
+      <p>Course Name <input id="post-name" type="text"></input></p>
+      <p>Description <textarea id="post-content"></textarea></p>
+      <p><input id="post-submit" type="submit"></input></p>
+    </form>
+    <hr>
+
+    <h2>Here (below) is the output from parse Database</h2>
+<!-- fetching the data from parse-->
+    <ol id="list-posts">
+      
+    </ol>
+
+
+   <!-- <p>Read the documentation and start building your JavaScript app:</p>
+
+    <ul>
+      <li><a href="https://www.parse.com/docs/js_guide">Parse JavaScript Guide</a></li>
+      <li><a href="https://www.parse.com/docs/js">Parse JavaScript API Documentation</a></li>
+    </ul>--> 
+
+  </div>
+
+  <script type="text/javascript">
+    Parse.initialize("Ce3DkEY3iBphP4vrzuOOZFv7OOZLSMyjABTjjFQi", "7RsdoAld6xJ3Iczfi3rIiUpVOQORpRfAUabnYNYQ");
+
+var courses = Parse.Object.extend("courses");
+    
+    function getPosts(){
+      var query = new Parse.Query(courses);
+      query.find({
+        success: function(results){ 
+          var output = "";
+          for (var i in results) {
+            var name = results[i].get("name");
+            var desc = results[i].get("Desc");
+            //console.log("name:"+ name);
+
+            output += "<li>";
+            output += "<h3>"+name+"</h3>";
+            output += "<p>" + desc+"</p>";
+            output += "</li>";
+          }
+          $("#list-posts").html(output);
+
+        }, error: function(){
+          console.log("Query Error"+ error.message);
+        }
+      });
+    }
+
+getPosts();
+
+    $("#post-form").submit(function(event){
+      event.preventDefault();
+
+      var name = $("#post-name").val();
+      var desc = $("#post-content").val();
+
+      var newCourse = new courses();
+
+      newCourse.set("name", name);
+      newCourse.set("Desc", desc);
+
+      newCourse.save({
+        success: function(){
+          getPosts();
+
+          console.log("Successfully added to parse database");
+
+      }, error: function(error){
+        console.log("Error:" + error.message);
+
+      }
+    });
+});
+    
+  </script>
+</body>
+
+</html>

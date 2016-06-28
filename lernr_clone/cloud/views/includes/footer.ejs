@@ -1,0 +1,74 @@
+<footer class="site-footer bkbg b-ws-top">
+    <div class="row">
+        <div class="small-6 medium-3 columns b-ws-top wcolor2 s2 text-right">
+            <img src="/assets/images/logo-white.png" style="height:81px;"><div class="s-ws-top"> © 2015 Good Educator Pvt. Ltd.</div>
+        </div>
+        <div class="small-6 medium-3 columns b-ws-top">
+            <h5 class="wcolor2">Reach us</h5>
+            <ul class="naked wcolor">
+                <li>hi@lernr.com</li>
+                <!-- <li>0120 00000000</li> -->
+            </ul>
+        </div>
+        <div class="small-6 medium-3 columns b-ws-top">
+            <h5 class="wcolor2">Social</h5>
+            <ul class="naked wcolor">
+                <li><a href="https://www.facebook.com/HomePro.in/" class="wcolor" target="_blank">Facebook</a></li>
+                <li><a href="https://twitter.com/houseafic" class="wcolor" target="_blank">Twitter</a></li>
+                <li><a href="https://www.linkedin.com/in/houseafic" class="wcolor" target="_blank">Linked In</a></li>
+            </ul>
+        </div>
+        <div class="small-6 medium-3 columns b-ws-top">
+            <h5 class="wcolor2">Legal</h5>
+            <ul class="naked wcolor">
+                <li><a href="/tos.ejs" class="wcolor">Terms of Service</a></li>
+                <li><a href="/privacy.ejs" class="wcolor">Privacy policy</a></li>
+                <li>Sitemap</li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<div id="signupModal" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <form id="signup" name="signup">
+        <div class="lhide">
+            <label>Your Name</label>
+            <input type="text" id="sname" placeholder="Choose something recognisable" />
+        </div>
+        <label>Your Email</label>
+        <input type="email" id="semail" placeholder="Preferably use company email" required />
+        <div class="lhide">
+            <!--   <label>Company</label>
+    <input list="companies" autocomplete="off" type="text" id="scomp" placeholder="Choose your company or add a new one"  /> -->
+        </div>
+        <div class="fhide">
+            <label>Choose a new Password</label>
+            <input type="password" class="addpasswordanim" id="addPassword" placeholder="Should be atleast 8 characters" />
+        </div>
+        <div class="hide" id="confirmPassword">
+            <label>Confirm password</label>
+            <input type="password" id="confirmPass" placeholder="Re-enter the password" />
+            <div class="scolor2 s2"><input type="checkbox" class="nm" required checked><span class="s-ws-left" style="line-height:1;">By signing up for houseafic.com you agree to our <a href="/tos.ejs" target="_blank">terms of service</a> and <a href="/privacy.ejs" target="_blank">privacy policy</a></span></div>
+        </div>
+        <div class="m-ws-top">
+            <input type="submit" id="signupBtn" class="button fullwidth small nm" value="Create a new free account">
+        </div>
+    </form>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+<div id="loginModal" class="reveal-modal tiny" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+    <form id="login" name="login">
+        <label>Your Email</label>
+        <input type="email" id="semail2" placeholder="Use company email" required />
+        <div class="fhide">
+            <label>houseafic Password</label>
+            <input type="password" class="addpasswordanim" id="addPassword2" placeholder="Should be atleast 8 characters" />
+        </div>
+        <div class="text-right s-ws-bottom fhide">
+            <a href="#" id="fpass">Forgot password?</a>
+        </div>
+        <div class="m-ws-top">
+            <input type="submit" id="loginBtn" class="button fullwidth small nm" value="Login">
+        </div>
+    </form>
+    <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>

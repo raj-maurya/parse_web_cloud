@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<% include includes/head.ejs %>
+
+<!-- <body style="background:url('./assets/images/home-bg.jpg') no-repeat; background-size:cover; "> -->
+<body>
+    <!-- <video id="landing-video" class="video scale manual" autoplay  loop poster="./assets/images/landing.jpg" style="width: 100%;  left: 0px; top: 0px; position:absolute; z-index:-99">
+        <source src="./assets/video/landing.mp4" type="video/mp4">
+        <source src="./assets/video/landing.webm" type="video/webm">
+        Your browser does not support the video tag.
+      </video> -->
+
+
+      <% include includes/header-out.ejs %>
+
+     
+        
+     
+      <div class="main b-ws-top-p">
+        <div class="row">
+          <div class="small-12 columns large-6 medium-centered medium-8">
+            <div class="panel">
+              <div class="row">
+                <div class="small-2 columns" id="iuimg">
+                  <i class="icon-user f-2x scolor2"></i>
+                </div>
+                <div class="small-8 columns xs-ws-top">
+    <!--              <h5 style="margin-bottom:0em;" id="iuname">...</h5>  -->
+                  <h5 style="margin-bottom:0em;" id="iuname"><%= asker %> <small> asked</small></h5>
+    <!--     <div class="s scolor2" id="itime">...</div>  -->
+                </div>
+                <div class="small-2 columns xs-ws-top text-right">
+    <!--              <div class="scolor" id="istatus">Status</div>  -->
+                   <div class="scolor" id="istatus"><%= status %></div>
+                  <p>
+    <!--    <%= text %> -->  
+        </p>
+      
+
+
+
+
+                </div>
+              </div>
+              <div class="row" style="display:none;" id="iimg">
+
+              </div>
+
+<div>
+ <img src=" <%= image %>">
+</div>
+
+              <div class="row">
+                <div class="small-12 columns s-ws-top">
+    <!--   <h4 id="ititle" style="font-weight:normal">...</h4>  -->
+                   <h4 id="ititle" style="font-weight:normal"> <small>#<%= text %>  </small><%= content %></h4>
+                </div>
+                <div class="small-10 columns m-ws-top">
+                  <div class="scolor2 s" id="cst">Course=<%= course %> | Subject=<%= subject %> | Topic= <%= topic %></div>
+                </div>
+                <div class="small-2 columns text-right s-ws-top">
+                  <i class="icon-android-favorite-outline scolor f-2x"></i>
+                </div>
+              </div>
+
+            </div>
+            
+          </div>
+        </div>
+        <div class="row">
+          <div class="small-12 columns large-6 medium-centered medium-8 m-ws-top" id="timelineview">
+            
+          </div>
+        </div>
+      </div>
+
+
+
+      <% include includes/footer.ejs %>
+
+    <!--  <script src="/assets/bower_components/foundation/js/foundation.min.js"></script>
+
+      <script src="/assets/js/app.js"></script>
+      <script src="/assets/js/default.js"></script>
+      <script src="/assets/js/doubt.js"></script>  -->
+    </body>
+
+    </html>
+
+

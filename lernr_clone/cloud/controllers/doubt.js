@@ -29,7 +29,7 @@ query.equalTo('issueId', parseInt(p));
 
     query.first(function(results){
 
-
+            action = results;
 //pointerset.set("Subject", subject);
 
 
@@ -42,14 +42,47 @@ console.log(results.id);
 //var text = " ";
 //text = results.get("issueId");
 //////////////////////////////////////////////////////////////////////////////////////
+var ListItem = Parse.Object.extend("Update");
+var query = new Parse.Query(ListItem);
+    query.include("pUser");
+  query.descending('createdAt');
+  query.find().then(function(results) {
+    for (var i = 0; i < results.length; i++) {
+                var object = results[i];
+                console.log(object.id + ' - ' + object.get("pUser").get("username"));
+    console.log("Then function");
+    console.log(object.get("content"));
+}
+console.log(object.get("content"));
+  },
+  function() {
+    res.send(500, 'Failed loading comments');
+  });
 
-/*query.equalTo('objectId', results.id);
-query.find(function(result){
 
-    console.log(result.get('course'));
+//////////////////////////////////////////////////////////////////////////////////////  
 
-});*/
+var ListItem = Parse.Object.extend("Update");
+            var squery = new Parse.Query(ListItem);
+            squery.include("pUser");
+            //query.include("User");
+           // unitq.equalTo("project", cpObj);
+          
+            squery.descending("createdAt");
+            squery.equalTo("type", "action");
+           // console.log("Before function");
 
+            squery.find(function(result){
+                 for (var i = 0; i < result.length; i++) {
+                object = result[i];
+
+             //     console.log("Successfully retrieved " + object.length + " scores.");
+               //   console.log(object.get("content")); 
+                 //  console.log(object.get("file").url()); 
+                  //console.log("Hello " +  object.get("pUser").get("username"));
+
+
+}
 
         res.render('default', {
             text:results.get("issueId") , //"zoo", //req.param.('id'),
@@ -59,20 +92,77 @@ query.find(function(result){
             course: results.get("course").get("name"), //"zoo2", //results[0].get('title'),
             subject: results.get("subject").get("name"),//results.get("pUser").get("name"),//results.get("subject"),//"zoo3", //results[1].get('title'),
             topic: results.get("topic").get("name"),
+            image:results.get("file").url(),
+            content1: result[0].get("content"),
+            asker1: result[0].get("pUser").get("name"),
+            image1: result[0].get("file").url(),
+          //   content1: result[1].get("content"),
+          //  asker1: result[1].get("pUser").get("name"),
+          //  image1: result[1].get("file").url()
+
+        });  
+                     
+               }   
+                ,
+                 function(error) {
+                    console.log(error);
+                    console.log("Error function");
+                });
+
+
+/*query.equalTo('objectId', results.id);
+query.find(function(result){
+
+    console.log(result.get('course'));
+
+});*/
+
+
+     /*   res.render('default', {
+            text:results.get("issueId") , //"zoo", //req.param.('id'),
+            content: results.get("content"),
+            asker: results.get("pUser").get("name"),//results.get(" "),
+            status:results.get("status"),//"zoo1",// results[0].get('status'),
+            course: results.get("course").get("name"), //"zoo2", //results[0].get('title'),
+            subject: results.get("subject").get("name"),//results.get("pUser").get("name"),//results.get("subject"),//"zoo3", //results[1].get('title'),
+            topic: results.get("topic").get("name"),
             image:results.get("file").url()
 
-        });
+        }); */
     }, 
     function(){
         res.send(500, 'Failed  loading issue');
     });
 };
 
+//////////////////////////////////////////////
+/*exports.index = function(req, res){
+//var ListItem = Parse.Object.extend('Update');
+ var ListItem = Parse.Object.extend("Update");
+            var squery = new Parse.Query(ListItem);
+           // unitq.equalTo("project", cpObj);
+          squery.equalTo("type", "action");
+            squery.descending("createdAt");
+            console.log("Before function");
+            squery.find(function(result){
+                 for (var i = 0; i < result.length; i++) {
+                object = result[i];
+
+                  console.log("Successfully retrieved " + object.length + " scores.");
+                  console.log(object.get("content")); 
+                   console.log(object.get("file").url()); 
+                  console.log("Hello");  
+                     
+               }   
+                },
+                 function(error) {
+                    console.log(error);
+                    console.log("Error function");
+                });
 
 
-
-
-
+ console.log("Out of success and Error function");
+};*/
 
 
 

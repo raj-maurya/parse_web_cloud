@@ -15,7 +15,9 @@
       <% include includes/header-out.ejs %>
 
      
-        
+        <div class="row">
+          
+        </div>
      
       <div class="main b-ws-top-p">
         <div class="row">
@@ -67,14 +69,60 @@
             </div>
             
           </div>
-        </div>
+       
+
+
+
         <div class="row">
+
+   
+  
           <div class="small-12 columns large-6 medium-centered medium-8 m-ws-top" id="timelineview">
-            
+            <!-- adding the update section                                    -->  
+             <div class="small-2 columns" id="iuimg">
+                  <i class="icon-user f-2x scolor2"></i>
+
+
+                </div>
+                 
+
+                 <div class="small-10 small-push-0 columns">
+            <div class="panel">
+
+        <!--    <div class="small-10 columns xs-ws-top">  -->
+    <!--              <h5 style="margin-bottom:0em;" id="iuname">...</h5>  -->
+        <!--          <h5 style="margin-bottom:0em;" id="iuname"><small><%= asker1 %></small> </h5>-->
+    <!--     <div class="s scolor2" id="itime">...</div>  
+                </div>-->
+<div class="small-12 columns m-ws-top">
+                  <div class="scolor" id="cst"> <%= asker1 %></div>
+                </div>
+
+              <div>
+                
+              </div>
+
+               <img src=" <%= image1 %>">
+              
+
+              <div class="row">
+                <div class="small-12 columns s-ws-top"  >
+    <!--   <h4 id="ititle" style="font-weight:normal">...</h4>  -->
+                   <h5 id="ititle" class="scolor" style="font-weight:normal"><%= content1 %></h5>
+                </div>
+
+            </div>
+
+            </div>
+
+            </div>
+          
+
           </div>
+
         </div>
       </div>
-
+</div>
 
 
       <% include includes/footer.ejs %>

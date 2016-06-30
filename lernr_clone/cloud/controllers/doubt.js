@@ -31,9 +31,32 @@ query.equalTo('issueId', parseInt(p));
 
             action = results;
 //pointerset.set("Subject", subject);
+/////////////////////////////////////////Setting up the Number of Days 
+var now = new Date();
+var created_at= results.createdAt;
+//console.log(results.id + results.createdAt + "Todays date" + d);
+//console.log(d-d1);
 
+var now_date = (now.getUTCMonth()+1) + "/" + now.getUTCDate() + "/" + now.getUTCFullYear();
 
-console.log(results.id);
+var created_at_date = (created_at.getUTCMonth()+1) + "/" + created_at.getUTCDate() + "/" + created_at.getUTCFullYear();
+
+//function parseDate(str) {
+  //  var mdy = str.split('/')
+    //return new Date(mdy[2], mdy[0]-1, mdy[1]);
+//}
+
+//function daydiff(first, second) {
+  //  return (second-first)/(1000*60*60*24)
+//}
+var parse_d1 = now_date.split('/');
+var parse_d1_return = new Date(parse_d1[2], parse_d1[0]-1, parse_d1[1]);
+var parse_d2 = created_at_date.split('/');
+var parse_d2_return = new Date(parse_d2[2], parse_d2[0]-1, parse_d2[1]);
+
+//var dif_days = daydiff(parseDate(created_at_date), parseDate(now_date));
+var dif_days = (parse_d1_return - parse_d2_return)/(1000*60*60*24);
+console.log("DateDiffrence" + dif_days);
 //query.equalTo('course', )
 //console.log( results.get("file").url());
 //console.log( results.get("course"));
@@ -53,7 +76,7 @@ var query = new Parse.Query(ListItem);
     console.log("Then function");
     console.log(object.get("content"));
 }
-console.log(object.get("content"));
+console.log(results.id  + results.content);
   },
   function() {
     res.send(500, 'Failed loading comments');
@@ -85,6 +108,7 @@ var ListItem = Parse.Object.extend("Update");
 }
 
         res.render('default', {
+            itime:dif_days,
             text:results.get("issueId") , //"zoo", //req.param.('id'),
             content: results.get("content"),
             asker: results.get("pUser").get("name"),//results.get(" "),
@@ -96,7 +120,7 @@ var ListItem = Parse.Object.extend("Update");
             content1: result[0].get("content"),
             asker1: result[0].get("pUser").get("name"),
             image1: result[0].get("file").url(),
-          //   content1: result[1].get("content"),
+            // content1: result[1].get("content"),
           //  asker1: result[1].get("pUser").get("name"),
           //  image1: result[1].get("file").url()
 

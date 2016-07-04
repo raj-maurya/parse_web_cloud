@@ -71,7 +71,24 @@
           </div>
        
 
+<!--    test for the loop  -->
 
+<div class="scolor" id="cst">
+  <% for (var  i= result.length-1; i >= 0; i--) { 
+                var object = result[i];%>
+ <!--<h3>Hello</h3>
+ <%- object.id %>  -->
+      
+ 
+  <!--   <%- object.get("pUser").get("name") %>   -->
+
+
+
+</div>
+
+
+
+<!--                 djfhzjdf                                 -->
 
         <div class="row">
 
@@ -95,20 +112,27 @@
     <!--     <div class="s scolor2" id="itime">...</div>  
                 </div>-->
 <div class="small-12 columns m-ws-top">
-                  <div class="scolor" id="cst"> <%= asker1 %></div>
+              <!--    <div class="scolor" id="cst"> <%= asker1 %> </div>  -->
+           <div class="scolor" id="cst">
+           <%- object.get("pUser").get("name") %> </div>
                 </div>
 
               <div>
                 
               </div>
 
-               <img src=" <%= image1 %>">
-              
+       <!--        <img src=" <%= image1 %>">  -->
+      <% if(  object.get("file") != null){%>
+           <img src=" <%- object.get("file").url() %> ">
 
+           <% } else { %>
+              <h3>  </h3>
+              <%}%>
               <div class="row">
                 <div class="small-12 columns s-ws-top"  >
     <!--   <h4 id="ititle" style="font-weight:normal">...</h4>  -->
-                   <h5 id="ititle" class="scolor" style="font-weight:normal"><%= content1 %></h5>
+        <!-- <h5 id="ititle" class="scolor" style="font-weight:normal"><%= content1 %></h5> -->
+        <h5 id="ititle" class="scolor" style="font-weight:normal"><%- object.get("content") %> </h5>
                 </div>
 
             </div>
@@ -116,11 +140,14 @@
             </div>
 
             </div>
-          
 
           </div>
 
         </div>
+        <%}%>
+
+
+
       </div>
 </div>
 

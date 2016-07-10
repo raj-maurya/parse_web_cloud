@@ -68,25 +68,35 @@ exports.index = function(req, res){
 
 */
 exports.hello = function(req, res){
-    res.render('hello', {});
+    res.render('hello', {
+        url_id :" "
+    });
 
 };
 
 exports.landing = function(req, res){
-    res.render('landing', {});
+    res.render('landing', {
+        url_id :" "
+    });
 
 };
 
 exports.post = function(req, res){
-    res.render('post', {});
+    res.render('post', {
+        url_id :" "
+    });
 
 };
 exports.privacy = function(req, res){
-    res.render('privacy', {});
+    res.render('privacy', {
+        url_id :" "
+    });
 
 };
 
 exports.tos = function(req, res){
-    res.render('tos', {});
+    res.render('tos', {
+        url_id :" "
+    });
 
 };

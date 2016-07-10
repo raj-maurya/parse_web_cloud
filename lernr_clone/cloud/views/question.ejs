@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<% include includes/head.ejs %>
+
+<!-- <body style="background:url('./assets/images/home-bg.jpg') no-repeat; background-size:cover; "> -->
+<body>
+    <!-- <video id="landing-video" class="video scale manual" autoplay  loop poster="./assets/images/landing.jpg" style="width: 100%;  left: 0px; top: 0px; position:absolute; z-index:-99">
+        <source src="./assets/video/landing.mp4" type="video/mp4">
+        <source src="./assets/video/landing.webm" type="video/webm">
+        Your browser does not support the video tag.
+      </video> -->
+
+ <% include includes/header-out.ejs %>
+
+      <div class="main b-ws-top-p">
+        <div class="row">
+          <div class="small-12 columns large-6 medium-centered medium-8">
+            <div class="panel">
+              <div class="row">
+                <div class="small-2 columns" id="iuimg">
+                  <i class="icon-user f-2x scolor2"></i>
+                </div>
+                <div class="small-10 columns xs-ws-top">
+                  <h5 style="margin-bottom:0em;" id="iuname">...</h5>
+                  <div class="s scolor2" id="itime"><%= itime %> <small>days</small></div>
+                </div>
+                <!-- <div class="small-2 columns xs-ws-top text-right">
+                  <div class="scolor" id="istatus">Status</div>
+                </div> -->
+              </div>
+              <div class="row" style="display:none;" id="iimg">
+              </div>
+
+
+<% if( results.get("questionPic") != undefined ){%>
+           <img src=" <%- results.get("questionPic").url() %> ">
+
+   <%} else { %> 
+
+<% } %>
+
+              <div class="row">
+                <div class="small-12 columns s-ws-top">
+                  <h4 id="ititle" style="font-weight:normal"><small>#<%= text %>  </small> <%= content %></h4>
+                </div>
+                <div class="small-10 columns m-ws-top">
+                  <div class="scolor2 s" id="cst"> <%= course %> | <%= subject %>| <%= topic %></div>
+                </div>
+                <div class="small-2 columns text-right s-ws-top">
+                  <i class="icon-android-favorite-outline scolor f-2x"></i>
+                </div>
+              </div>
+
+            </div>
+            
+          </div>
+      
+
+
+
+        
+ 
+    
+          <div class="small-12 columns large-5 medium-centered medium-8 m-ws-top" >
+
+          <% var aArray = ["D","C","B","A"];
+       for (var  i= result.length-1; i >= 0; i--) { 
+       
+                var object = result[i];%>
+        <!--  <h3><%-aArray[i] %></h3>  -->
+
+      <div class="row">
+
+        <div class="panel opt"><div class="row">
+        <div class="small-2 columns f-1-5x scolor2">
+       <%-aArray[i]%>
+        </div>
+        <div class="small-2 columns"><input type="radio" name="options" onClick="alert('Please download the NEET Prep App from Google Play store to know the Answer [https://goo.gl/E7FXFA]');">
+        </div>
+        <div class="small-8 columns scolor">
+        <%- object.get("content") %>
+        </div>
+        </div>
+        </div>  
+
+         </div>
+         
+    <%}%>
+           
+          </div> 
+
+      </div>
+    </div>
+       
+      
+
+
+
+     
+      <% include includes/footer.ejs %>
+
+  <!--    <script src="/assets/bower_components/foundation/js/foundation.min.js"></script>
+
+      <script src="/assets/js/app.js"></script>
+      <script src="/assets/js/default.js"></script>
+      <script src="/assets/js/question.js"></script> -->
+
+<!--      <script type="text/javascript">
+        
+        $(document).ready(function()
+{   
+    var iid = getQueryVariable("id");
+    getQuestion(iid);
+//    parallax();
+    //mixpanel.track_forms("#signup", "signup done");
+});
+      </script>  -->
+    </body>
+
+    </html>
+
+

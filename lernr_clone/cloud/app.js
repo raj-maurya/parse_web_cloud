@@ -9,6 +9,8 @@ var doubtController = require('cloud/controllers/doubt.js');
 //var projectController = require('cloud/controllers/project.js');
 //var projectViewController = require('cloud/controllers/projectnews.js');
 var timelineController = require('cloud/controllers/timeline.js');
+var questionController = require('cloud/controllers/question.js');
+var leaderController = require('cloud/controllers/leaderjs.js');
 
 
 var app = express();
@@ -33,11 +35,13 @@ app.get('/', doubtController.index);
 		topic:"Nil"
 	});
 });*/
+app.get('/question', questionController.question);
 app.get('/landing', defaultController.landing);
 app.get('/privacy', defaultController.privacy);
 app.get('/tos', defaultController.tos);
 app.get('/hello', defaultController.hello);
 app.get('/post', defaultController.post);
+app.get('/leader', leaderController.leader);
 
 
 

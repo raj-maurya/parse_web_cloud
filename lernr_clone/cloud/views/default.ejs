@@ -49,15 +49,40 @@
 
               </div>
 
-<div>
+<!-- <div>
  <img src=" <%= image %>">
-</div>
+</div>  -->
+
+
+
+<% if(  results.get("file") != null && results.get("content")==' ') {%>
+           <img src=" <%- results.get("file").url() %> ">
+<div class="row">
+           <% }  else if (results.get("file") == null) { %>
+   <!-- <p>Hi earth!</p>  -->
+
+
+<div class="row">
+<div class="small-12 columns s-ws-top">
+    <!--   <h4 id="ititle" style="font-weight:normal">...</h4>  -->
+                   <h4 id="ititle" style="font-weight:normal"> <small>#<%= text %>  </small><%= content %></h4>
+                </div>
+
+
+         <% }   else{ %>
+         <!--     <h3> Hello </h3>  -->
+              <img src=" <%- results.get("file").url() %> ">
 
               <div class="row">
                 <div class="small-12 columns s-ws-top">
     <!--   <h4 id="ititle" style="font-weight:normal">...</h4>  -->
                    <h4 id="ititle" style="font-weight:normal"> <small>#<%= text %>  </small><%= content %></h4>
                 </div>
+
+
+              <%}%>
+
+
                 <div class="small-10 columns m-ws-top">
                   <div class="scolor2 s" id="cst">Course=<%= course %> | Subject=<%= subject %> | Topic= <%= topic %></div>
                 </div>

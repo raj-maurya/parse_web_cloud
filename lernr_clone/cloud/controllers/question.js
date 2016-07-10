@@ -21,6 +21,7 @@ exports.question = function(req, res){
 query.equalTo('questionId', parseInt(p));
  query.first(function(results){
     questionObj= results;
+    //console.log(results.get("questionPic").url());
 
     /////////////////////////////////////////Setting up the Number of Days 
 var now = new Date();
@@ -91,7 +92,10 @@ console.log(questionObj.id);
     result:result,
      course: results.get("course").get("name"),
             subject: results.get("subject").get("name"),
-            topic: results.get("topic").get("name"),
+            topic:results.get("topic").get("name"),
+            results:results,
+            url_id:p
+            
    
     });
 

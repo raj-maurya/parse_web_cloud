@@ -30,6 +30,7 @@ query.equalTo('issueId', parseInt(p));
     query.first(function(results){
 
             action = results;
+            issueObj = results;
 //pointerset.set("Subject", subject);
 /////////////////////////////////////////Setting up the Number of Days 
 var now = new Date();
@@ -87,16 +88,18 @@ console.log(results.id  + results.content);
 
 var ListItem = Parse.Object.extend("Update");
             var squery = new Parse.Query(ListItem);
+            var pointer = new Parse.Object("Issue");
+    pointer.id = issueObj.id;
             squery.include("pUser");
             //query.include("User");
            // unitq.equalTo("project", cpObj);
           
             squery.descending("createdAt");
-            squery.equalTo("type", "action");
+            squery.equalTo("issue", issueObj);
            // console.log("Before function");
 
             squery.find(function(result){
-                 for (var i = 0; i < result.length; i++) {
+                for (var i = 0; i < result.length; i++) {
                 object = result[i];
 
              //     console.log("Successfully retrieved " + object.length + " scores.");
@@ -116,10 +119,13 @@ var ListItem = Parse.Object.extend("Update");
             course: results.get("course").get("name"), //"zoo2", //results[0].get('title'),
             subject: results.get("subject").get("name"),//results.get("pUser").get("name"),//results.get("subject"),//"zoo3", //results[1].get('title'),
             topic: results.get("topic").get("name"),
-            image:results.get("file").url(),
-            content1: result[0].get("content"),
-            asker1: result[0].get("pUser").get("name"),
-            image1: result[0].get("file").url(),
+            image:" ",//results.get("file").url(),
+            content1:" ", //result[0].get("content"),
+           asker1: " ",//result[0].get("pUser").get("name"),
+            image1:" ", //result[0].get("file").url(),
+            result:result,
+            results:results,
+            url_id:p
             // content1: result[1].get("content"),
           //  asker1: result[1].get("pUser").get("name"),
           //  image1: result[1].get("file").url()
